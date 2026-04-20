@@ -9,7 +9,9 @@
 
     {% for post in posts %}
         <h2>{{ post.title }}</h2>
+        
         <p class="date"> Opublikowane : {{ post.publish }} przez {{ post.author }}</p>
         {{  post.body|truncatewords:30|linebreaks }}
+        <a href="detail.html">Wiecej</a>
     {% endfor %}
 {% endblock %}

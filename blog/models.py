@@ -5,7 +5,7 @@ from django.utils import timezone
 
 class PublishedManager(models.Manager):
     def get_queryset(self):
-        return super().get_queryset().filter(status='Published')
+        return super().get_queryset().filter(status='PB')
 class Post(models.Model):
     class Status(models.TextChoices):
         PUBLISHED = 'PB', 'Published'
@@ -18,7 +18,7 @@ class Post(models.Model):
     updated = models.DateTimeField(auto_now=True)
     t ="🥹"
     objects = models.Manager()
-    published = PublishedManager
+    published = PublishedManager()
     status = models.CharField(max_length=2, choices=Status, default=Status.DRAFT)
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='blog_posts'
