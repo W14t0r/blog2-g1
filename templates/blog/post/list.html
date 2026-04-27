@@ -12,6 +12,6 @@
         
         <p class="date"> Opublikowane : {{ post.publish }} przez {{ post.author }}</p>
         {{  post.body|truncatewords:30|linebreaks }}
-        <a href="detail.html">Wiecej</a>
+        <a href="{%  url 'blog:post_detail' post.pk %}">Wiecej</a>
     {% endfor %}
 {% endblock %}
